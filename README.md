@@ -1,102 +1,50 @@
+# 📈 Stock Price Prediction — LSTM + ARIMA
 
-# Stock Price Prediction with LSTM and ARIMA
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/akshay-birla-03/stock-price-prediction-model/blob/main/notebooks/Run_in_Colab.ipynb)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue?logo=python&logoColor=white)](#)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=white)](#)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-## Overview
+A hybrid stock-price forecaster combining a **deep-learning LSTM** (non-linear, long-range
+temporal dependencies) with a **statistical ARIMA** model (linear autocorrelation), then
+blending their outputs. Data is pulled **live from Yahoo Finance**.
 
-This project combines the strengths of **Long Short-Term Memory (LSTM)** neural networks and **ARIMA** statistical models to predict stock prices. By leveraging historical stock data, the models aim to provide accurate and insightful predictions for informed decision-making.
+▶️ **Run it now, no setup:** click the **Open in Colab** badge — it clones, installs and runs
+the forecaster in your browser.
 
----
+## Highlights
 
-## Features
+- **Live data** via \`yfinance\` (any ticker, e.g. \`TATAELXSI.NS\`, \`RELIANCE.NS\`)
+- **LSTM** on a 60-day look-back window for sequence forecasting
+- **ARIMA** statistical baseline on the same series
+- **Hybrid** prediction combining both models
+- **Evaluation**: MSE and R², plus actual-vs-predicted plots
 
-- **Data Source**: Automatically fetches historical stock data from Yahoo Finance using the `yfinance` library.
-- **LSTM**: Uses deep learning for time series forecasting, capturing long-term dependencies.
-- **ARIMA**: Employs statistical methods to model and predict stock prices based on historical patterns.
-- **Hybrid Predictions**: Combines predictions from both LSTM and ARIMA for robust results.
-- **Performance Metrics**: Evaluates models using Mean Squared Error (MSE) and R-squared values.
-- **Visualization**: Plots actual prices alongside model predictions for clear performance insights.
+## Quickstart (local)
 
----
+\`\`\`bash
+git clone https://github.com/akshay-birla-03/stock-price-prediction-model.git
+cd stock-price-prediction-model
+pip install -r requirements.txt
+python stock_price_prediction_lstm_arima.py   # edit the \`ticker\` variable first
+\`\`\`
 
-## Installation
+## Project layout
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/stock-price-prediction.git
-   cd stock-price-prediction
-   ```
+\`\`\`
+stock_price_prediction_lstm_arima.py     # fetch -> LSTM + ARIMA -> evaluate -> plot
+stock_price_prediction_documentation.md  # detailed write-up
+notebooks/Run_in_Colab.ipynb             # one-click Colab runner
+requirements.txt
+\`\`\`
 
-2. Install required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Tech
 
----
+Python · TensorFlow/Keras · statsmodels · scikit-learn · yfinance · pandas · NumPy · Matplotlib
 
-## Usage
+## Disclaimer
 
-1. Open the script `stock_price_prediction_lstm_arima.py`.
-2. Modify the `ticker` variable to the stock symbol of your choice. For example:
-   ```python
-   ticker = 'TATAELXSI.NS'
-   ```
-3. Run the script:
-   ```bash
-   python stock_price_prediction_lstm_arima.py
-   ```
-4. View the output metrics in the console and the prediction graphs.
-
----
-
-## Example Output
-
-The graph below demonstrates the model's ability to predict stock prices accurately:
-
-1. **Blue Line**: Actual Stock Prices
-2. **Orange Line**: LSTM Predictions
-3. **Green Line**: ARIMA Predictions
-4. **Red Line**: Combined Predictions
-
-![Graph Placeholder](placeholder_for_actual_graph.png)
+For research and educational use only — **not** financial advice.
 
 ---
-
-## File Structure
-
-```
-.
-├── stock_price_prediction_lstm_arima.py  # Main script for the project
-├── stock_price_prediction_documentation.md  # Detailed project documentation
-├── requirements.txt  # List of required Python libraries
-└── README.md  # This file
-```
-
----
-
-## Dependencies
-
-- `yfinance`
-- `numpy`
-- `pandas`
-- `matplotlib`
-- `scikit-learn`
-- `keras`
-- `statsmodels`
-
----
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you encounter any problems.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
-## Contact
-
-For any inquiries or suggestions, please reach out to [Your Name](mailto:your_email@example.com).
+Author: **Akshay Birla** · [GitHub](https://github.com/akshay-birla-03) · MIT License
